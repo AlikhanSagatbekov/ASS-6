@@ -13,13 +13,16 @@ public class Vertex<V>{
         public void addAdjacentVertex(Vertex<V> destination, double weight){ // to add new connection
             adjacentVertices.put(destination, weight);
         }
+    public void removeAdjacentVertex(Vertex<V> destination){
+        adjacentVertices.remove(destination);
+    }
 
-        public V getData(){
+    public V getData(){
             return data;
         }
 
         public List<Vertex<V>> getNeighbours(){ // to get all the vertices that are connected to this
-            ArrayList<Vertex<V>> neighbours = new ArrayList<>();
+            ArrayList<Vertex<V>> neighbours = new ArrayList<>(); // vertices are stores in ArrayList before returning
             for(Vertex<V> vertex: adjacentVertices.keySet()){
                 neighbours.add(vertex);
             }
