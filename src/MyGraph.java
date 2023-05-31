@@ -27,6 +27,7 @@ public class MyGraph<V>{
             }
             System.out.println();
         }
+
     }
 
     public void removeEdge(V sourceKey, V destinationKey){
@@ -56,18 +57,21 @@ public class MyGraph<V>{
         Queue<Vertex<V>> q = new LinkedList<>(); // here I add nodes that need to be visited
 
         q.add(start); // starting node
-        while(!q.isEmpty()) { // while my queue is not empty the algo works
+        while(!q.isEmpty()){ // while my queue is not empty the algo works
             Vertex<V> current = q.poll(); // take the first in the queue
             visited.put(current, true); // mark it as visited
             System.out.print(current.getData() + " ");
             ArrayList<Vertex<V>> neighbours = (ArrayList<Vertex<V>>) current.getNeighbours(); // get all the nodes that are neighbours
-            for (Vertex<V> vertex : neighbours) {
-                if (!visited.containsKey(vertex)) { // if one of neighbour is not visited, yet I add him to the queue
+            for(Vertex<V> vertex: neighbours){
+                if(!visited.containsKey(vertex)){ // if one of neighbour is not visited, yet I add him to the queue
                     q.add(vertex);
                     visited.put(vertex, true);
                 }
             }
         }
+
+    }
+
     public void Dijkstra(V start) {
         // Check if the start vertex exists in the graph
         if (!vertices.containsKey(start)) {
@@ -142,4 +146,8 @@ public class MyGraph<V>{
             }
         }
     }
+
+
+
+
 }
